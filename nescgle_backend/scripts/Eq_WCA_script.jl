@@ -18,10 +18,10 @@ function main(args...)
     I = Input_WCA(ϕ, T, k, ν = ν)
     S = structure_factor(I)
     # computing dynamics
-    τ, Fs, F, Δζ, Δη, D, W = SCGLE(I)
+    τ, Fs, F, Δζ, ΔG, D, W = SCGLE(I)
     # parsing to json file
     structural_data = Dict("k"=>k, "S"=>S)
-    dynamics_data = Dict("tau"=>τ, "sISF"=>Fs, "ISF"=>F, "Dzeta"=>Δζ, "Deta"=>Δη, "D"=>D, "MSD"=>W)
+    dynamics_data = Dict("tau"=>τ, "sISF"=>Fs, "ISF"=>F, "Dzeta"=>Δζ, "Deta"=>ΔG, "D"=>D, "MSD"=>W)
     data = Dict("Statics"=>structural_data, "Dynamics"=>dynamics_data)
     println(JSON.json(data))
 end
