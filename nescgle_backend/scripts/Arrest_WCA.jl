@@ -34,8 +34,6 @@ function main(args...)
     # Complete data output
     data = Dict("Arrest" => Arrest)
     println(JSON.json(data))
-    
-    println("Calculation complete.")
 end
 
 @time main(ARGS...)
